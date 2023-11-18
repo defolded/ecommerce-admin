@@ -1,27 +1,29 @@
 'use client'
 
+import AlertModal from "@/components/modals/alert-modal"
+import ApiAlert from "@/components/ui/api-alert"
 import { Button } from "@/components/ui/button"
-import Heading from "@/components/ui/heading"
-import { Separator } from "@/components/ui/separator"
-import { Store } from "@prisma/client"
-import { Trash } from "lucide-react"
-import { useForm } from "react-hook-form"
-import * as z from "zod"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useState } from "react"
-import { Form,
+import {
+    Form,
     FormControl,
     FormField,
     FormItem,
     FormLabel,
-    FormMessage } from "@/components/ui/form"
+    FormMessage
+} from "@/components/ui/form"
+import Heading from "@/components/ui/heading"
 import { Input } from "@/components/ui/input"
-import toast from "react-hot-toast"
-import axios from "axios"
-import { useParams, useRouter } from "next/navigation"
-import AlertModal from "@/components/modals/alert-modal"
-import ApiAlert from "@/components/ui/api-alert"
+import { Separator } from "@/components/ui/separator"
 import { useOrigin } from "@/hooks/use-origin"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { Store } from "@prisma/client"
+import axios from "axios"
+import { Trash } from "lucide-react"
+import { useParams, useRouter } from "next/navigation"
+import { useState } from "react"
+import { useForm } from "react-hook-form"
+import toast from "react-hot-toast"
+import * as z from "zod"
 
 interface ISettingsForm {
     initialData: Store
