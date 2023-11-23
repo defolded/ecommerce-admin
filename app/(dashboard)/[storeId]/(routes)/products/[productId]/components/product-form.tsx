@@ -218,7 +218,7 @@ const Productform: React.FC<IProductform> = ({
                     />
                     <FormField
                         control={form.control}
-                        name='categoryId'
+                        name='sizeId'
                         render={({ field }) => (
                             <FormItem>
                             <FormLabel>Size</FormLabel>
@@ -245,7 +245,7 @@ const Productform: React.FC<IProductform> = ({
                     />
                     <FormField
                         control={form.control}
-                        name='categoryId'
+                        name='colorId'
                         render={({ field }) => (
                             <FormItem>
                             <FormLabel>Colors</FormLabel>
