@@ -1,6 +1,6 @@
-import prismadb from "@/lib/prismadb"
-import { auth } from "@clerk/nextjs"
-import { NextResponse } from "next/server"
+import prismadb from '@/lib/prismadb'
+import { auth } from '@clerk/nextjs'
+import { NextResponse } from 'next/server'
 
 export async function POST(
     req: Request,
@@ -22,35 +22,35 @@ export async function POST(
         } = body
 
         if (!userId) {
-            return new NextResponse("Unauthenticated", { status: 403 })
+            return new NextResponse('Unauthenticated', { status: 403 })
         }
 
         if (!name) {
-            return new NextResponse("Name is required", { status: 400 })
+            return new NextResponse('Name is required', { status: 400 })
         }
 
         if (!images || !images.length) {
-            return new NextResponse("Images are required", { status: 400 })
+            return new NextResponse('Images are required', { status: 400 })
         }
 
         if (!price) {
-            return new NextResponse("Price is required", { status: 400 })
+            return new NextResponse('Price is required', { status: 400 })
         }
 
         if (!categoryId) {
-            return new NextResponse("Category id is required", { status: 400 })
+            return new NextResponse('Category id is required', { status: 400 })
         }
 
         if (!colorId) {
-            return new NextResponse("Color id is required", { status: 400 })
+            return new NextResponse('Color id is required', { status: 400 })
         }
 
         if (!sizeId) {
-            return new NextResponse("Size id is required", { status: 400 })
+            return new NextResponse('Size id is required', { status: 400 })
         }
 
         if (!params.storeId) {
-            return new NextResponse("Store id is required", { status: 400 })
+            return new NextResponse('Store id is required', { status: 400 })
         }
 
         const storeByUserId = await prismadb.store.findFirst({
@@ -61,10 +61,10 @@ export async function POST(
         })
 
         if (!storeByUserId) {
-            return new NextResponse("Unauthorized", { status: 405 })
+            return new NextResponse('Unauthorized', { status: 405 })
         }
 
-        const product = await prismadb.product.create({
+        const products = await prismadb.product.create({
             data: {
                 name,
                 price,
@@ -84,7 +84,7 @@ export async function POST(
             },
         })
 
-        return NextResponse.json(product)
+        return NextResponse.json(products)
     } catch (error) {
         console.log('[PRODUCTS_POST]', error)
         return new NextResponse('Internal errror', { status: 500 })
@@ -103,7 +103,7 @@ export async function GET(
         const isFeatured = searchParams.get('isFeatured')
 
         if (!params.storeId) {
-            return new NextResponse("Store id is required", { status: 400 })
+            return new NextResponse('Store id is required', { status: 400 })
         }
 
         const products = await prismadb.product.findMany({

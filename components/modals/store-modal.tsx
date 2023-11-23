@@ -4,21 +4,21 @@ import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import axios from 'axios'
 
-import { useStoreModal } from "@/hooks/use-store-modal";
-import { Modal } from "../ui/modal";
-import { useForm } from 'react-hook-form';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form';
-import { Input } from '../ui/input';
-import { Button } from '../ui/button';
-import { useState } from 'react';
-import toast from 'react-hot-toast';
+import { useStoreModal } from '@/hooks/use-store-modal'
+import { Modal } from '../ui/modal'
+import { useForm } from 'react-hook-form'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form'
+import { Input } from '../ui/input'
+import { Button } from '../ui/button'
+import { useState } from 'react'
+import toast from 'react-hot-toast'
 
 const formSchema = z.object({
     name: z.string().min(1),
 })
 
 export const StoreModal = () => {
-    const storeModal = useStoreModal();
+    const storeModal = useStoreModal()
 
     const [loading, setLoading] = useState(false)
 
@@ -45,8 +45,8 @@ export const StoreModal = () => {
 
     return (
         <Modal
-            title="Create Store"
-            description="Add a new store to manage products and categories"
+            title='Create Store'
+            description='Add a new store to manage products and categories'
             isOpen={storeModal.isOpen}
             onClose={storeModal.onClose}
         >

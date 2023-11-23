@@ -1,6 +1,6 @@
 'use client'
 
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "./dialog"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from './dialog'
 
 interface IModal {
     title: string
@@ -17,7 +17,7 @@ export const Modal:React.FC<IModal> = ({
     onClose,
     children}) => {
     const onChange = (open: boolean) => {
-        if (!open) onClose;
+        if (!open) onClose
     }
 
     return (

@@ -1,7 +1,7 @@
-import prismadb from "@/lib/prismadb"
+import prismadb from '@/lib/prismadb'
 import { format } from 'date-fns'
-import { CategoryColumn } from "./components/columns"
-import CategoryClient from "./components/client"
+import CategoryClient from './components/client'
+import { CategoryColumn } from './components/columns'
 
 const CategoriesPage = async ({
   params
@@ -29,8 +29,8 @@ const CategoriesPage = async ({
   }))
   
   return (
-    <div className="flex-col">
-        <div className="flex-1 space-y-4 p-8 pt-6">
+    <div className='flex-col'>
+        <div className='flex-1 space-y-4 p-8 pt-6'>
             <CategoryClient data={formattedCategories} />
         </div>
     </div>

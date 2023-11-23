@@ -1,6 +1,6 @@
-import prismadb from "@/lib/prismadb"
-import { auth } from "@clerk/nextjs"
-import { NextResponse } from "next/server"
+import prismadb from '@/lib/prismadb'
+import { auth } from '@clerk/nextjs'
+import { NextResponse } from 'next/server'
 
 export async function POST(
     req: Request,
@@ -39,7 +39,7 @@ export async function POST(
             return new NextResponse('Unauthorized', { status: 403 })
         }
 
-        const color = await prismadb.color.create({
+        const colors = await prismadb.color.create({
             data: {
                 name,
                 value,
@@ -47,7 +47,7 @@ export async function POST(
             }
         })
 
-        return NextResponse.json(color)
+        return NextResponse.json(colors)
     } catch (error) {
         console.log('[COLORS_POST]', error)
         return new NextResponse('Internal errror', { status: 500 })
@@ -71,7 +71,7 @@ export async function GET(
 
         return NextResponse.json(colors)
     } catch (error) {
-        console.log('[COLORS_POST]', error)
+        console.log('[COLORS_GET]', error)
         return new NextResponse('Internal errror', { status: 500 })
     }
 }

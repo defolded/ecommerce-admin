@@ -1,8 +1,8 @@
-import prismadb from "@/lib/prismadb"
+import prismadb from '@/lib/prismadb'
 import { formatter } from '@/lib/utils'
 import { format } from 'date-fns'
-import ProductClient from "./components/client"
-import { ProductColumn } from "./components/columns"
+import ProductClient from './components/client'
+import { ProductColumn } from './components/columns'
 
 const ProductsPage = async ({
   params
@@ -37,8 +37,8 @@ const ProductsPage = async ({
   }))
   
   return (
-    <div className="flex-col">
-        <div className="flex-1 space-y-4 p-8 pt-6">
+    <div className='flex-col'>
+        <div className='flex-1 space-y-4 p-8 pt-6'>
             <ProductClient data={formattedProdcuts} />
         </div>
     </div>

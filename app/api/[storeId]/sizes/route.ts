@@ -1,6 +1,6 @@
-import prismadb from "@/lib/prismadb"
-import { auth } from "@clerk/nextjs"
-import { NextResponse } from "next/server"
+import prismadb from '@/lib/prismadb'
+import { auth } from '@clerk/nextjs'
+import { NextResponse } from 'next/server'
 
 export async function POST(
     req: Request,
@@ -39,7 +39,7 @@ export async function POST(
             return new NextResponse('Unauthorized', { status: 403 })
         }
 
-        const size = await prismadb.size.create({
+        const sizes = await prismadb.size.create({
             data: {
                 name,
                 value,
@@ -47,7 +47,7 @@ export async function POST(
             }
         })
 
-        return NextResponse.json(size)
+        return NextResponse.json(sizes)
     } catch (error) {
         console.log('[SIZES_POST]', error)
         return new NextResponse('Internal errror', { status: 500 })
@@ -71,7 +71,7 @@ export async function GET(
 
         return NextResponse.json(sizes)
     } catch (error) {
-        console.log('[SIZES_POST]', error)
+        console.log('[SIZES_GET]', error)
         return new NextResponse('Internal errror', { status: 500 })
     }
 }

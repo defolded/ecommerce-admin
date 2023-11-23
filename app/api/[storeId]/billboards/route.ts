@@ -1,6 +1,6 @@
-import prismadb from "@/lib/prismadb"
-import { auth } from "@clerk/nextjs"
-import { NextResponse } from "next/server"
+import prismadb from '@/lib/prismadb'
+import { auth } from '@clerk/nextjs'
+import { NextResponse } from 'next/server'
 
 export async function POST(
     req: Request,
@@ -39,7 +39,7 @@ export async function POST(
             return new NextResponse('Unauthorized', { status: 403 })
         }
 
-        const billboard = await prismadb.billboard.create({
+        const billboards = await prismadb.billboard.create({
             data: {
                 label,
                 imageUrl,
@@ -47,7 +47,7 @@ export async function POST(
             }
         })
 
-        return NextResponse.json(billboard)
+        return NextResponse.json(billboards)
     } catch (error) {
         console.log('[BILLBOARDS_POST]', error)
         return new NextResponse('Internal errror', { status: 500 })
@@ -71,7 +71,7 @@ export async function GET(
 
         return NextResponse.json(billboards)
     } catch (error) {
-        console.log('[BILLBOARDS_POST]', error)
+        console.log('[BILLBOARDS_GET]', error)
         return new NextResponse('Internal errror', { status: 500 })
     }
 }

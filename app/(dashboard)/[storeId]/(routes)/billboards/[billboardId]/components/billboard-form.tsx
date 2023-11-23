@@ -1,7 +1,7 @@
 'use client'
 
-import AlertModal from "@/components/modals/alert-modal"
-import { Button } from "@/components/ui/button"
+import AlertModal from '@/components/modals/alert-modal'
+import { Button } from '@/components/ui/button'
 import {
     Form,
     FormControl,
@@ -9,20 +9,20 @@ import {
     FormItem,
     FormLabel,
     FormMessage
-} from "@/components/ui/form"
-import Heading from "@/components/ui/heading"
-import ImageUpload from "@/components/ui/image-upload"
-import { Input } from "@/components/ui/input"
-import { Separator } from "@/components/ui/separator"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { Billboard } from "@prisma/client"
-import axios from "axios"
-import { Trash } from "lucide-react"
-import { useParams, useRouter } from "next/navigation"
-import { useState } from "react"
-import { useForm } from "react-hook-form"
-import toast from "react-hot-toast"
-import * as z from "zod"
+} from '@/components/ui/form'
+import Heading from '@/components/ui/heading'
+import ImageUpload from '@/components/ui/image-upload'
+import { Input } from '@/components/ui/input'
+import { Separator } from '@/components/ui/separator'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { Billboard } from '@prisma/client'
+import axios from 'axios'
+import { Trash } from 'lucide-react'
+import { useParams, useRouter } from 'next/navigation'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
+import * as z from 'zod'
 
 interface IBillboardForm {
     initialData: Billboard | null
@@ -99,7 +99,7 @@ const BillboardForm: React.FC<IBillboardForm> = ({
             onConfirm={onDelete}
             loading={loading}
         />
-        <div className="flex items-center justify-between">
+        <div className='flex items-center justify-between'>
             <Heading 
                 title={title}
                 description={description}
@@ -111,13 +111,13 @@ const BillboardForm: React.FC<IBillboardForm> = ({
                     size='sm'
                     onClick={() => setOpen(true)}
                 >
-                    <Trash className="h-4 w-4" />
+                    <Trash className='h-4 w-4' />
                 </Button>
             )}
         </div>
         <Separator />
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full" >
+            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8 w-full' >
                 <FormField 
                             control={form.control}
                             name='imageUrl'
@@ -136,7 +136,7 @@ const BillboardForm: React.FC<IBillboardForm> = ({
                                 </FormItem>
                             )}
                         />
-                <div className="grid grid-cols-3 gap-8" >
+                <div className='grid grid-cols-3 gap-8' >
                     <FormField 
                         control={form.control}
                         name='label'
@@ -144,14 +144,14 @@ const BillboardForm: React.FC<IBillboardForm> = ({
                             <FormItem>
                                 <FormLabel>Label</FormLabel>
                                 <FormControl>
-                                    <Input disabled={loading} placeholder="Billboard label" {...field} />
+                                    <Input disabled={loading} placeholder='Billboard label' {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
                         )}
                     />
                 </div>
-                <Button disabled={loading} className="ml-auto" type='submit' >
+                <Button disabled={loading} className='ml-auto' type='submit' >
                     {action}
                 </Button>
             </form>

@@ -1,7 +1,7 @@
 'use client'
 
-import AlertModal from "@/components/modals/alert-modal"
-import { Button } from "@/components/ui/button"
+import AlertModal from '@/components/modals/alert-modal'
+import { Button } from '@/components/ui/button'
 import {
     Form,
     FormControl,
@@ -9,19 +9,19 @@ import {
     FormItem,
     FormLabel,
     FormMessage
-} from "@/components/ui/form"
-import Heading from "@/components/ui/heading"
-import { Input } from "@/components/ui/input"
-import { Separator } from "@/components/ui/separator"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { Color } from "@prisma/client"
-import axios from "axios"
-import { Trash } from "lucide-react"
-import { useParams, useRouter } from "next/navigation"
-import { useState } from "react"
-import { useForm } from "react-hook-form"
-import toast from "react-hot-toast"
-import * as z from "zod"
+} from '@/components/ui/form'
+import Heading from '@/components/ui/heading'
+import { Input } from '@/components/ui/input'
+import { Separator } from '@/components/ui/separator'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { Color } from '@prisma/client'
+import axios from 'axios'
+import { Trash } from 'lucide-react'
+import { useParams, useRouter } from 'next/navigation'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
+import * as z from 'zod'
 
 interface IColorForm {
     initialData: Color | null
@@ -99,7 +99,7 @@ const ColorForm: React.FC<IColorForm> = ({
             onConfirm={onDelete}
             loading={loading}
         />
-        <div className="flex items-center justify-between">
+        <div className='flex items-center justify-between'>
             <Heading 
                 title={title}
                 description={description}
@@ -111,14 +111,14 @@ const ColorForm: React.FC<IColorForm> = ({
                     size='sm'
                     onClick={() => setOpen(true)}
                 >
-                    <Trash className="h-4 w-4" />
+                    <Trash className='h-4 w-4' />
                 </Button>
             )}
         </div>
         <Separator />
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full" >
-                <div className="grid grid-cols-3 gap-8" >
+            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8 w-full' >
+                <div className='grid grid-cols-3 gap-8' >
                     <FormField 
                         control={form.control}
                         name='name'
@@ -126,7 +126,7 @@ const ColorForm: React.FC<IColorForm> = ({
                             <FormItem>
                                 <FormLabel>Name</FormLabel>
                                 <FormControl>
-                                    <Input disabled={loading} placeholder="Color name" {...field} />
+                                    <Input disabled={loading} placeholder='Color name' {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -139,9 +139,9 @@ const ColorForm: React.FC<IColorForm> = ({
                             <FormItem>
                                 <FormLabel>Value</FormLabel>
                                 <FormControl>
-                                    <div className="flex items-center gap-x-4">
-                                        <Input disabled={loading} placeholder="Color value" {...field} />
-                                        <div className="border p-4 rounded-full" style={{ backgroundColor: field.value }}/>
+                                    <div className='flex items-center gap-x-4'>
+                                        <Input disabled={loading} placeholder='Color value' {...field} />
+                                        <div className='border p-4 rounded-full' style={{ backgroundColor: field.value }}/>
                                     </div>
                                 </FormControl>
                                 <FormMessage />
@@ -149,7 +149,7 @@ const ColorForm: React.FC<IColorForm> = ({
                         )}
                     />
                 </div>
-                <Button disabled={loading} className="ml-auto" type='submit' >
+                <Button disabled={loading} className='ml-auto' type='submit' >
                     {action}
                 </Button>
             </form>

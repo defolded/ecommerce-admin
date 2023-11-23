@@ -1,6 +1,6 @@
-import prismadb from "@/lib/prismadb"
-import { auth } from "@clerk/nextjs"
-import { NextResponse } from "next/server"
+import prismadb from '@/lib/prismadb'
+import { auth } from '@clerk/nextjs'
+import { NextResponse } from 'next/server'
 
 export async function POST(
     req: Request,
@@ -28,7 +28,7 @@ export async function POST(
 
         return NextResponse.json(store)
     } catch (error) {
-        console.log('[STORES_POST]', error)
+        console.log('[STORE_POST]', error)
         return new NextResponse('Internal errror', { status: 500 })
     }
 }
