@@ -21,11 +21,11 @@ export const columns: ColumnDef<ProductColumn>[] = [
     header: 'Name',
   },
   {
-    accessorKey: 'archived',
+    accessorKey: 'isArchived',
     header: 'Archived',
   },
   {
-    accessorKey: 'featured',
+    accessorKey: 'isFeatured',
     header: 'Featured',
   },
   {

@@ -1,17 +1,17 @@
 'use client'
 
-import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import axios from 'axios'
+import * as z from 'zod'
 
 import { useStoreModal } from '@/hooks/use-store-modal'
-import { Modal } from '../ui/modal'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
+import { Button } from '../ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form'
 import { Input } from '../ui/input'
-import { Button } from '../ui/button'
-import { useState } from 'react'
-import toast from 'react-hot-toast'
+import { Modal } from '../ui/modal'
 
 const formSchema = z.object({
     name: z.string().min(1),

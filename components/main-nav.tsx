@@ -15,7 +15,7 @@ export default function MainNav({
         {
             href: `/${params.storeId}`,
             label: 'Overview',
-            active: pathname === `/${params.storeId}/settings`
+            active: pathname === `/${params.storeId}`
         },
         {
             href: `/${params.storeId}/billboards`,
